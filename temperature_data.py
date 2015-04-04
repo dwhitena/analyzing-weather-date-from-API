@@ -32,7 +32,6 @@ start_date = start_date - datetime.timedelta(days=30)
 # RETRIEVE AND STORE DATA
 # -----------------------
 
-
 # connect to database
 con = lite.connect('weather.db')
 cur = con.cursor()
