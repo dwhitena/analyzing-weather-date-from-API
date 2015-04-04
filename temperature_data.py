@@ -10,11 +10,13 @@ import sqlite3 as lite
 # -----------
 
 # define the locations of cities for this analysis
-cities = {"Chicago": ["41.837551","-87.681844"], 
+cities = {
+     "Chicago": ["41.837551","-87.681844"], 
      "New_York_City": ["40.663619","-73.938589"],
      "Denver": ["39.761850","-104.881105"],
      "Los_Angeles": ["34.019394","-118.410825"],
-     "Austin": ["30.303936","-97.754355"]}
+     "Austin": ["30.303936","-97.754355"]
+     }
 
 # dark sky forecasting API
 apikey = "2d788ea8b4b010ec1bd77776d96363ae"
@@ -29,7 +31,6 @@ start_date = start_date - datetime.timedelta(days=30)
 # -----------------------
 # RETRIEVE AND STORE DATA
 # -----------------------
-
 
 # connect to database
 con = lite.connect('weather.db')
@@ -70,7 +71,6 @@ for city in cities.keys():
 		with con:
 			cur.execute("UPDATE maxtemps SET " + city + "=" + \
 				str(maxtemp) + " WHERE day = " + dateinc[i].strftime('%s') + ";")
-
 
 
 # construct API call
